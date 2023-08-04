@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import Addform from "./components/AddForm";
+import Item from "./components/Item";
+import { useState } from "react";
 
 function App() {
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      title: "แก้บั๊คโปรแกรม",
+    },
+    {
+      id: 2,
+      title: "กดเงิน",
+    },
+    {
+      id: 3,
+      title: "เลี้ยงปลา",
+    },
+  ]);
+  function deleattaks(id) {
+    console.log(id);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="container">
+        <Addform />
+        <section>
+          {tasks.map((data) => (
+            <Item key={data.id} data={data} />
+          ))}
+        </section>
+      </div>
     </div>
   );
 }
