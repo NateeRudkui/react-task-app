@@ -19,8 +19,9 @@ function App() {
       title: "เลี้ยงปลา",
     },
   ]);
-  function deleattaks(id) {
-    console.log(id);
+  function deleteTask(id) {
+    const result = tasks.filter((item) => item.id !== id);
+    setTasks(result);
   }
   return (
     <div className="App">
@@ -29,7 +30,7 @@ function App() {
         <Addform />
         <section>
           {tasks.map((data) => (
-            <Item key={data.id} data={data} />
+            <Item key={data.id} data={data} deleteTask={deleteTask} />
           ))}
         </section>
       </div>
