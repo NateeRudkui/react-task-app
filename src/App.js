@@ -26,6 +26,16 @@ function App() {
     e.preventDefault();
     if (!title) {
       alert("กรุณากรอกข้อมูล");
+    } else if (editId) {
+      const updateTask = tasks.map((item) => {
+        if (item.id === editId) {
+          return { ...item, title: title };
+        }
+        return item;
+      });
+      setTasks(updateTask);
+      setTitle("");
+      setEditId(null);
     } else {
       const newTask = {
         id: Math.floor(Math.random() * 1000),
@@ -39,7 +49,7 @@ function App() {
   function editTask(id) {
     setEditId(id);
     const edidTask = tasks.find((item) => item.id === id);
-    console.log(edidTask);
+    setTitle(edidTask.title);
   }
 
   function deleteTask(id) {
