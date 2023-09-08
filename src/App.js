@@ -21,6 +21,7 @@ function App() {
   ]);
   const [title, setTitle] = useState("");
   const [editId, setEditId] = useState(null);
+  const [theam, setTheam] = useState("light");
 
   function saveTask(e) {
     e.preventDefault();
@@ -58,8 +59,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header />
+    <div className={"App " + theam}>
+      <Header theam={theam} setTheam={setTheam} />
       <div className="container">
         <Addform title={title} setTitle={setTitle} saveTask={saveTask} />
         <section>
