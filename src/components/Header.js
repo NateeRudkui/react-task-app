@@ -9,11 +9,11 @@ export default function Header(props) {
   return (
     <header>
       <div className="logo">
-        <span>Task Management</span>
+        <span>Tee Task Management</span>
       </div>
-      <div className="theme-container">
+      <div className="theme-container" onClick={toggletheam}>
         <span>{theam === "light" ? "โหมดกลางวัน" : "โหมดกลางคืน "}</span>
-        <span className="icon " onClick={toggletheam}>
+        <span className="icon ">
           {theam === "light" ? <BsSun /> : <BsFillMoonFill />}
         </span>
       </div>
